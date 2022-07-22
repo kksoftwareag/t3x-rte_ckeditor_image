@@ -18,13 +18,13 @@
     'use strict';
 
     var $;
-    require(['jquery'], function (jquery) {
-        $ = jquery;
-    });
 
     CKEDITOR.plugins.add('typo3image', {
         elementBrowser: null,
         init: function (editor) {
+            require(['jquery'], function (jquery) {
+                $ = jquery;
+
             var allowedAttributes = ['!src', 'alt', 'title', 'class', 'rel', 'width', 'height'],
                 additionalAttributes = getAdditionalAttributes(editor),
                 $shadowEditor = $(editor.element.$.innerText),
@@ -166,6 +166,7 @@
                         }
                     }
                 }
+            });
             });
         }
     });
